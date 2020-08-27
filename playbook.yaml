@@ -1,0 +1,14 @@
+---
+- hosts: all
+  name: Adv Ping
+  become: no
+  gather_facts: false
+
+  tasks:
+    - name: Ping all hosts
+      ping:
+      register: ping_results
+
+    - name: Log ping_results
+      Debug:
+        var: ping_results
